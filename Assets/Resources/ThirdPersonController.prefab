@@ -1940,6 +1940,7 @@ GameObject:
   - component: {fileID: 1230963345473938434}
   - component: {fileID: 1692172490212117583}
   - component: {fileID: 5291281082392774523}
+  - component: {fileID: 8897653861110805533}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Player
@@ -2099,8 +2100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322b49a066b19df4db00711276b14055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Character: {fileID: 5291281082392774523}
   maxHp: 100
+  camera: {fileID: 100004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 3}
   currentPlayer: {fileID: 1692172490212117583}
   maxHealth: 100
 --- !u!114 &5291281082392774523
@@ -2115,7 +2116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
+  m_MovingTurnSpeed: 1000
   m_StationaryTurnSpeed: 180
   m_JumpPower: 12
   m_GravityMultiplier: 2
@@ -2123,6 +2124,18 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.1
+--- !u!114 &8897653861110805533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847655309373831720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &847655309373832012
 GameObject:
   m_ObjectHideFlags: 0

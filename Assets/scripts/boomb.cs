@@ -11,7 +11,7 @@ public class boomb : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerController>().Damage(10);
+            //other.GetComponent<PlayerController>().Damage(10);
         }
     }
 }

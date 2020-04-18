@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(5, 5, 5), Quaternion.identity, 0); 
+        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, -2.1f, 0), Quaternion.identity, 0); 
     }
     public void LeaveRoom()
     {
@@ -64,5 +64,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             chat.RemoveAt(0);
         }
         GameManager.Instance().logText.text = string.Join("\n", chat);
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LeaveRoom();
+        }
     }
 }
