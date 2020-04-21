@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField] float maxHp;
+    public UnityStandardAssets.Cameras.FreeLookCam freeLook;
     public GameObject camera;
     bool inChat = false;
-    public PlayerController currentPlayer;
     float directionDampTime = .25f;
     [SerializeField] float maxHealth;
     float health = 100;
@@ -19,11 +18,16 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
-            Instantiate(camera);
+            GameObject camera_clone = Instantiate(camera);
+            freeLook = camera.GetComponent<UnityStandardAssets.Cameras.FreeLookCam>();
             GameManager.Instance().currentPlayer = this;
             this.hpBar = GameManager.Instance().hpBar;
             camera.GetComponentInChildren<Camera>().enabled = true;
             camera.GetComponentInChildren<AudioListener>().enabled = true;
+            //camera.GetComponent<UnityStandardAssets.Cameras.FreeLookCam>().Target = this.gameObject.transform;
+            //Debug.Log(camera.GetComponent<UnityStandardAssets.Cameras.FreeLookCam>().m_Target);
+            gameObject.GetComponent<UnityStandardAssets.Characters.ThirdPerson.KThirdPersonUserControl>().Cam = camera_clone.transform;
+
 
             // get the third person character ( this should never be null due to require component )
         }
@@ -37,10 +41,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
 
-            //inChat = !inChat;
-            //Cursor.visible = inChat;
-            //Cursor.lockState = inChat ? CursorLockMode.None : CursorLockMode.Locked;
-            //GameManager.Instance().chatField.Select();
+        //inChat = !inChat;
+        //Cursor.visible = inChat;
+        //Cursor.lockState = inChat ? CursorLockMode.None : CursorLockMode.Locked;
+        //GameManager.Instance().chatField.Select();
     }
 
     //public void Damage(int dmg)
@@ -62,3 +66,4 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 }
+

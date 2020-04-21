@@ -3,11 +3,14 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class launcher : MonoBehaviourPunCallbacks
 {
     [SerializeField] string gameVersion = "1";
     [SerializeField] byte maxPlayer = 8;
+    public Text t;
+
 
     private void Awake()
     {
@@ -17,6 +20,7 @@ public class launcher : MonoBehaviourPunCallbacks
     private void Start()
     {
         Connect();
+        t.text = "All ok";
     }
 
     private void Connect()

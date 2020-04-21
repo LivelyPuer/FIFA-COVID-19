@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             LeaveRoom();
         }
